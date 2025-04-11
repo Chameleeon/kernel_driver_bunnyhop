@@ -141,12 +141,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\aimbot\aimer.cpp" />
+    <ClCompile Include="src\aimbot\Entity.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Math\vector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\aimbot\driver.h" />
+    <ClInclude Include="src\aimbot\Entity.h" />
     <ClInclude Include="src\buttons.hpp" />
     <ClInclude Include="src\client_dll.hpp" />
     <ClInclude Include="src\offsets.hpp" />
+    <ClInclude Include="src\Math\vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

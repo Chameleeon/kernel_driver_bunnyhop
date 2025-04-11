@@ -12,7 +12,7 @@ void debug_print(PCSTR text) {
 	KdPrintEx((DPFLTR_IHVDRIVER_ID, DPFLTR_INFO_LEVEL, text));
 }
 
-namespace driver {
+namespace driver_ns {
 	namespace codes {
 		// Attach to process
 		constexpr ULONG attach =
@@ -132,9 +132,9 @@ NTSTATUS driver_main(PDRIVER_OBJECT driver_object, PUNICODE_STRING registry_path
 	// enable sending small amounts of data between usermode and kernelmode
 	SetFlag(device_object->Flags, DO_BUFFERED_IO);
 
-	driver_object->MajorFunction[IRP_MJ_CREATE] = driver::create;
-	driver_object->MajorFunction[IRP_MJ_CLOSE] = driver::close;
-	driver_object->MajorFunction[IRP_MJ_DEVICE_CONTROL] = driver::device_control;
+	driver_object->MajorFunction[IRP_MJ_CREATE] = driver_ns::create;
+	driver_object->MajorFunction[IRP_MJ_CLOSE] = driver_ns::close;
+	driver_object->MajorFunction[IRP_MJ_DEVICE_CONTROL] = driver_ns::device_control;
 	
 	ClearFlag(device_object->Flags, DO_DEVICE_INITIALIZING);
 
